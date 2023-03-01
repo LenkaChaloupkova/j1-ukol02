@@ -7,7 +7,10 @@ import java.awt.*;
 
 public class HlavniProgram {
     Turtle zofka = new Turtle();
+
     public void start() {
+        zofka.setPenWidth(3);
+        zofka.setSpeed(90);
         /*Color zelenaBarva;
         zelenaBarva=new Color(69,139,0);
 
@@ -48,19 +51,17 @@ public class HlavniProgram {
 
     public void nakresliBarevnyRovnostrannyTrojuhelnik(double velikostStrany,Color color) {
         zofka.setPenColor(color);
-        zofka.setPenWidth(3);
-        zofka.setSpeed(90);
+
         zofka.turnLeft(90.0);
         zofka.move(velikostStrany);
-        zofka.turnLeft(120.0);
-        zofka.move(velikostStrany);
-        zofka.turnLeft(120.0);
-        zofka.move(velikostStrany);
+        for (int i = 0; i < 3; i++) {
+            zofka.turnLeft(120);
+            zofka.move(50);
+        }
     }
     public void nakresliBarevnyCtverec(double velikost, Color color) {
         zofka.setPenColor(color);
-        zofka.setPenWidth(3);
-        zofka.setSpeed(90);
+
         zofka.penDown();
         for (int i = 0; i < 4; i++) {
             zofka.move(50);
@@ -68,28 +69,26 @@ public class HlavniProgram {
         }
         zofka.penUp();
     }
-    private void nakresliBarevnyObdelnik(double i, double i1, Color color) {
+    private void nakresliBarevnyObdelnik(double delkaStranyA, double delkaStranyB, Color color) {
         zofka.setPenColor(color);
-        zofka.setPenWidth(3);
-        zofka.setSpeed(90);
+
         zofka.penDown();
-        zofka.move(i);
+        zofka.move(delkaStranyA);
+
         zofka.turnLeft(90);
-        zofka.move(i1);
+        zofka.move(delkaStranyB);
         zofka.turnLeft(90);
-        zofka.move(i);
+        zofka.move(delkaStranyA);
         zofka.turnLeft(90);
-        zofka.move(i1);
+        zofka.move(delkaStranyB);
         zofka.penUp();
     }
-
-    private void nakresliBarevneKolecko(double u,Color color){
+    private void nakresliBarevneKolecko(double delkaStrany,Color color){
         zofka.setPenColor(color);
-        zofka.setPenWidth(3);
-        zofka.setSpeed(90);
+
         zofka.penDown();
         for (var o = 0; o < 360; o++) {
-            zofka.move(u);
+            zofka.move(delkaStrany);
             zofka.turnLeft(1); }
     }
     public static void main(String[] args) {
