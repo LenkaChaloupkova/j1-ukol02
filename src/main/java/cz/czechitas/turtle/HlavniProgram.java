@@ -10,27 +10,9 @@ public class HlavniProgram {
 
     public void start() {
         zofka.setPenWidth(3);
-        zofka.setSpeed(90);
-        /*Color zelenaBarva;
-        zelenaBarva=new Color(69,139,0);
+//        zofka.setSpeed(90);
 
-        zofka.setLocation(100.0,100.0);
-        nakresliBarevnyRovnostrannyTrojuhelnik(50.0,zelenaBarva);
-
-        zofka.setLocation(200.0,100.0);
-        nakresliBarevnyCtverec(50, new Color(0,127,255));
-
-        zofka.setLocation(350,100);
-        nakresliBarevnyObdelnik(50,100, new Color(123,24,133));
-
-        zofka.setLocation(425,100);
-        nakresliBarevneKolecko(new Color(150,0,0));*/
-
-        //BORUVKOVA ZMRZLINA
-        zofka.setLocation(200,100);
-        nakresliBarevneKolecko(0.45, new Color(138,43,226));
-        zofka.setLocation(199,107);
-        nakresliBarevnyRovnostrannyTrojuhelnik(50,new Color(210,105,30));
+        nakresliZmrzlinu();
 
         //SNEHULAK
         zofka.setLocation(330,100);
@@ -49,14 +31,14 @@ public class HlavniProgram {
         nakresliBarevnyObdelnik(100,200,Color.black);
     }
 
-    public void nakresliBarevnyRovnostrannyTrojuhelnik(double velikostStrany,Color color) {
+    public void nakresliBarevnyRovnostrannyTrojuhelnik(double velikostStrany, Color color) {
         zofka.setPenColor(color);
 
         zofka.turnLeft(90.0);
         zofka.move(velikostStrany);
         for (int i = 0; i < 3; i++) {
             zofka.turnLeft(120);
-            zofka.move(50);
+            zofka.move(velikostStrany);
         }
     }
     public void nakresliBarevnyCtverec(double velikost, Color color) {
@@ -64,11 +46,12 @@ public class HlavniProgram {
 
         zofka.penDown();
         for (int i = 0; i < 4; i++) {
-            zofka.move(50);
+            zofka.move(velikost);
             zofka.turnLeft(90);
         }
         zofka.penUp();
     }
+
     private void nakresliBarevnyObdelnik(double delkaStranyA, double delkaStranyB, Color color) {
         zofka.setPenColor(color);
 
@@ -83,7 +66,8 @@ public class HlavniProgram {
         zofka.move(delkaStranyB);
         zofka.penUp();
     }
-    private void nakresliBarevneKolecko(double delkaStrany,Color color){
+
+    private void nakresliBarevneKolecko(double delkaStrany, Color color) {
         zofka.setPenColor(color);
 
         zofka.penDown();
@@ -91,6 +75,7 @@ public class HlavniProgram {
             zofka.move(delkaStrany);
             zofka.turnLeft(1); }
     }
+
     public static void main(String[] args) {
         new HlavniProgram().start();
     }
