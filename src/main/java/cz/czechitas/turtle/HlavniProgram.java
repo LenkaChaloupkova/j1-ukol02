@@ -10,39 +10,54 @@ public class HlavniProgram {
 
     public void start() {
         zofka.setPenWidth(3);
-//        zofka.setSpeed(90);
+//        zofka.setSpeed(80);
 
         nakresliZmrzlinu();
 
         //SNEHULAK
-//        zofka.setLocation(330,100);
-//        nakresliBarevneKolecko(10,new Color(1,0,0));
-//        zofka.setLocation(310,150);
-//        nakresliBarevneKolecko(20, Color.black);
-//        zofka.setLocation(375,332);
-//        nakresliBarevneKolecko(10, Color.black);
-//        zofka.setLocation(390,230);
-//        nakresliBarevneKolecko(10, Color.black);
-//        zofka.setLocation(250,230);
-//        nakresliBarevneKolecko(10,Color.black);
+        nakresliSnehulaka();
 
         //MASINKA
         nakresliMasinku();
     }
 
+    private void nakresliSnehulaka() {
+        zofka.
+        zofka.penDown();
+
+        zofka.setLocation(350,50);
+        zofka.turnLeft(90);
+        nakresliBarevneKolecko(15, Color.black);
+        zofka.setLocation(350,135);
+        nakresliBarevneKolecko(25, Color.black);
+        zofka.setLocation(350,275);
+        nakresliBarevneKolecko(35,Color.black);
+        zofka.turnRight(90);
+        zofka.setLocation(465,205);
+        nakresliBarevneKolecko(10, Color.black);
+        zofka.setLocation(265,205);
+        nakresliBarevneKolecko(10,Color.black);
+
+        zofka.penUp();
+    }
+
     private void nakresliZmrzlinu() {
+        zofka.penDown();
+
         zofka.setLocation(200, 100);
         nakresliBarevneKolecko(10, new Color(138, 43, 226));
-        zofka.setLocation(149, 107);
+        zofka.setLocation(143, 105);
         zofka.turnLeft(90.0);
-        nakresliBarevnyRovnostrannyTrojuhelnik(51, new Color(210, 105, 30));
+        nakresliBarevnyRovnostrannyTrojuhelnik(57, new Color(210, 105, 30));
         zofka.turnRight(90);
+
+        zofka.penUp();
     }
 
     private void nakresliMasinku() {
         // telo masinky
         zofka.turnLeft(90);
-        zofka.setLocation(660, 400);
+        zofka.setLocation(720, 310);
         nakresliBarevnyObdelnik(200, 100, Color.black);
         zofka.turnRight(90);
         zofka.setLocation(zofka.getX() + 100, zofka.getY() + 100);
@@ -50,7 +65,7 @@ public class HlavniProgram {
         zofka.turnRight(90);
         //kolecka
         zofka.turnLeft(90);
-        nakresliBarevneKolecko(18, Color.CYAN);
+        nakresliBarevneKolecko(17, Color.CYAN);
         zofka.setX(zofka.getX() - 160);
         zofka.turnLeft(90);
         nakresliBarevneKolecko(7, Color.black);
@@ -59,7 +74,7 @@ public class HlavniProgram {
         zofka.setX(zofka.getX() - 60);
         zofka.turnRight(90);
         zofka.setY(zofka.getY() - 50);
-        nakresliBarevnyRovnostrannyTrojuhelnik(100, Color.BLUE);
+        nakresliBarevnyRovnostrannyTrojuhelnik(80, Color.BLUE);
     }
 
     public void nakresliBarevnyRovnostrannyTrojuhelnik(double velikostStrany, Color color) {
