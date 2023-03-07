@@ -22,7 +22,6 @@ public class HlavniProgram {
     }
 
     private void nakresliSnehulaka() {
-        zofka.
         zofka.penDown();
 
         zofka.setLocation(350,50);
